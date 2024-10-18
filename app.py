@@ -3,50 +3,13 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from dash import dcc, html, dash_table
 import pandas as pd
-import webbrowser
-import threading
 import redis
 import json
+import os
 
 
-# Conectando ao banco de dados Redis com a senha
-r = redis.Redis(
-    host='redis-11835.c278.us-east-1-4.ec2.redns.redis-cloud.com',
-    port=11835,
-    password='Carlos123456#',
-    db=0,
-    decode_responses=True
-)
-
-def get_user_data(batch_size=500):
-    
-    all_records = []
-
-    try:
-        # Recuperar todas as chaves que começam com 'ia_dummy:*'
-        keys = list(r.scan_iter("ia_dummy:*"))
-        
-        # Dividir as chaves em lotes
-        for i in range(0, len(keys), batch_size):
-            batch_keys = keys[i:i + batch_size]
-            batch_values = r.mget(batch_keys)  # Obter todos os valores em um único comando
-            
-            for record_json in batch_values:
-                if record_json:
-                    try:
-                        record_data = json.loads(record_json)  # Converter o JSON para um dicionário
-                        all_records.append(record_data)  # Adicionar o dicionário à lista
-                    except json.JSONDecodeError as e:
-                        print(f"Erro ao decodificar JSON: {e}")
-
-    except Exception as e:
-        print(f"Erro ao buscar dados do Redis: {e}")
-
-    # Converter a lista de dicionários em um DataFrame
-    return pd.DataFrame(all_records)
-
-# Uso da função
-df_data = get_user_data(batch_size=500)
+# Exemplo de criação de um dataframe
+df_data = pd.read_excel('Dados_coordenada_V3 (1).xlsx')
 
 # Criar uma coluna de data combinando ano e mês
 df_data['Data'] = pd.to_datetime(df_data['Year'].astype(str) + '-' + df_data['Month'].astype(str) + '-01')
@@ -193,17 +156,6 @@ def update_table(fabricantes, anos, paises, tipos):
 
 
     return total_volume.to_dict('records')
-
-# Função para abrir o navegador
-def open_browser():
-    import time
-    time.sleep(1)  # Aguarda o servidor iniciar
-    webbrowser.open('http://127.0.0.1:8050/', new=2)  # Abre a aplicação em uma nova aba do navegador
-
-# Rodar a aplicação e abrir automaticamente no navegador
-if __name__ == '__main__':
-    threading.Thread(target=open_browser).start()  # Inicia o navegador em uma nova thread
-    app.run_server(debug=True)
 
 
 
