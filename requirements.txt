@@ -1,8 +1,7 @@
-python==3.12.7
 dash==2.7.0
 dash-bootstrap-components==1.2.1
 pandas==2.2.3
 redis==4.5.1
 gunicorn==20.1.0
-setuptools>=67.0.0
-numpy==1.23.5
+numpy==1.24.3
+Flask
