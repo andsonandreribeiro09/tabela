@@ -1,3 +1,4 @@
-web: python dash_table/tabela.py
+web: python tabela.py
+
 
 
