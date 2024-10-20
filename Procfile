@@ -1,2 +1,3 @@
-web: gunicorn tabela:app
+web: python tabela.py
+
 
