@@ -1,4 +1,5 @@
-web: python tabela.py
+web: gunicorn tabela:app
+
 
 
 
