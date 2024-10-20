@@ -16,7 +16,6 @@
 "*.tmp" 
 "*.log" 
 "*.sqlite3" 
-"*.db" 
 "*.pkl" 
 "*.zip" 
 "*.tar.gz" 
