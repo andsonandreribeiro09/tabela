@@ -1,4 +1,4 @@
-web: python tabela.py:app
+web: tabela.py:app
 
 
 
