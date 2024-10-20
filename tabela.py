@@ -5,6 +5,8 @@ from dash import dcc, html, dash_table
 import pandas as pd
 import os
 
+# Layout da aplicação
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Exemplo de criação de um dataframe
 df_data = pd.read_excel('Dados_coordenada_V3 (1).xlsx')
@@ -16,9 +18,6 @@ df_data['Data'] = pd.to_datetime(df_data['Year'].astype(str) + '-' + df_data['Mo
 df_data['Box 9L'] = pd.to_numeric(df_data['Box 9L'], errors='coerce')
 df_data.rename(columns={'Ano': 'Year'}, inplace=True)  # Alterar a coluna "Ano" para "Year"
 df_data['Year'] = pd.to_numeric(df_data['Year'], errors='coerce')
-
-# Layout da aplicação
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Layout da barra lateral
 sidebar = html.Div(
@@ -157,5 +156,6 @@ def update_table(fabricantes, anos, paises, tipos):
 
 
 
-
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
