@@ -3,8 +3,6 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from dash import dcc, html, dash_table
 import pandas as pd
-#import redis
-#import json
 import os
 
 
