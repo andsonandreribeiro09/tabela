@@ -1,4 +1,4 @@
-web: gunicorn dash_table.app:app
+web: gunicorn tabeladummy.app:app
 
 
 
