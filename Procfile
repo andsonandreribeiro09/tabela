@@ -1,4 +1,5 @@
-web: gunicorn app:app
+web: gunicorn dash_table.app:app
+
 
 
 
