@@ -1,4 +1,4 @@
-web: gunicorn tabeladummy.app:app
+web: python app:app
 
 
 
