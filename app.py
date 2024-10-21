@@ -9,7 +9,7 @@ from flask import Flask
 app = Flask(__name__)
 
 # Layout da aplicação
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, server=app, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Exemplo de criação de um dataframe
 df_data = pd.read_excel('Dados_coordenada_V3 (1).xlsx')
@@ -33,7 +33,7 @@ sidebar = html.Div(
                     [
                         dbc.NavLink("Home", href="https://cravalbusiness.com/", active="exact"),
                         dbc.NavLink("Dashboard", href="http://127.0.0.1:5000/dashboard/", active="exact"),
-                        dbc.NavLink("Tabela", href="/tabela", active="exact"),
+                        
                     ],
                     vertical=True,
                     pills=True,
