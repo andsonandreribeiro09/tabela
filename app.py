@@ -6,10 +6,10 @@ import pandas as pd
 import os
 from flask import Flask
 
-app = Flask(__name__)
+server = Flask(__name__)
 
 # Layout da aplicação
-app = dash.Dash(__name__, server=app, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Exemplo de criação de um dataframe
 df_data = pd.read_excel('Dados_coordenada_V3 (1).xlsx')
@@ -158,7 +158,8 @@ def update_table(fabricantes, anos, paises, tipos):
     return total_volume.to_dict('records')
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8050))  # Use a porta fornecida pelo Heroku
+    app.run(host='0.0.0.0', port=port)  # Certifique-se de que o host está definido como '0.0.0.0'
 
 
