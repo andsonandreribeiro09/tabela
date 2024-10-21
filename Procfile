@@ -1,4 +1,4 @@
-web: gunicorn app:tabela
+web: gunicorn app:app
 
 
 
