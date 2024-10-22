@@ -160,8 +160,8 @@ def create_app():
 
 # Executando a aplicação
 if __name__ == '__main__':
-    app = create_app()
-    app.run( )
+    app = create_app
+    
 
 
 # Adicionando a rota para favicon
