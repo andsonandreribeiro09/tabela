@@ -160,11 +160,5 @@ def create_app():
 
 # Executando a aplicação
 if __name__ == '__main__':
-    app = create_app
-    
-
-
-# Adicionando a rota para favicon
-@server.route('/favicon.ico')
-def favicon():
-    return "", 204
+    app = create_app()
+    app.run( )
