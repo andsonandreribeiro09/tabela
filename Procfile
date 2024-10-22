@@ -1,4 +1,4 @@
-web: gunicorn server:dash_app
+web: gunicorn app:app
 
 
 
