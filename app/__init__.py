@@ -164,3 +164,7 @@ if __name__ == '__main__':
     app.run( )
 
 
+# Adicionando a rota para favicon
+@server.route('/favicon.ico')
+def favicon():
+    return "", 204
