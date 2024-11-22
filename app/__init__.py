@@ -31,8 +31,8 @@ sidebar = html.Div(
                 html.Hr(),
                 dbc.Nav(
                     [
-                        dbc.NavLink("Home", href="https://cravalbusiness.com/", active="exact"),
-                        dbc.NavLink("Dashboard", href="/dashboard/", active="exact"),
+                        dbc.NavLink("Home", href="https://dashboardcraval-8894b30f8c48.herokuapp.com/", active="exact"),
+                        dbc.NavLink("Dashboard", href="https://dashboardcraval-8894b30f8c48.herokuapp.com/dashboard/", active="exact"),
                     ],
                     vertical=True,
                     pills=True,
